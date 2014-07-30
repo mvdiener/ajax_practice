@@ -1,0 +1,25 @@
+<div class="container">
+	<h1>Welcome to Derper</h1>
+	<% if session[:user_id] %>
+		<%= erb :_logout_form %>
+	<% end %>
+
+	<%= erb :_user_forms %>
+
+	<p>Write a derp in the field below</p>
+	<form id='derp_form' action='/' method='post'>
+		<textarea required='required' placeholder='Your derp goes here' name='derp'></textarea>
+		<input type='submit' value='Submit Derp'>
+	</form>
+	<div>
+		<p>All derps:</p>
+		<ul id="derps">
+			<% @derps.each do |derp| %>
+				<li><%= derp.text %></li>
+			<% end %>
+		</ul>
+	</div>
+	<div id="three_cols">
+		<p><a href="/columns">Here's a link to a page with three columns in css</a></p>
+	</div>
+</div>
